@@ -2,7 +2,6 @@
 // Write a C++ program to reverse a string using pointers.
 
 #include<iostream>
-#include<cstring>
 using namespace std;
 int main()
 {
@@ -11,7 +10,9 @@ int main()
 	cout<<"Enter your string please : ";
 	cin.getline(str, 100);
 	
-	int len = strlen(str);
+	int len = 0;
+    	while (str[len] != '\0') len++;
+
 	
 	char *start = str;
 	char *end = str + len - 1;
