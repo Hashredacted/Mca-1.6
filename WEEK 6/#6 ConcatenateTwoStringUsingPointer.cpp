@@ -1,21 +1,36 @@
-// Write a C++ program to concatenate two strings using pointers:
 
-#include<iostream>
-using namespace std;
-int main()
-{
-	string s1, s2;
-	
-	cout<<"Enter first string : ";
-	cin>>s1;
-	cout<<"Enter second string : ";
-	cin>>s2;
-	
-	string *ptr1 = &s1, *ptr2 = &s2;
-	
-	cout<<endl<<"Concatenation under process..."<<endl;
-	cout<<endl<<"Concatenated string is : "<<*ptr1 + *ptr2;
-	
-	return 0;
+
+#include <iostream>
+
+int main() {
+    char str1[] = "Hello ";
+    char str2[] = "World!";
+
+    // Calculate the total length of the concatenated string
+    int len1 = 0, len2 = 0;
+    while (str1[len1] != '\0') len1++;
+    while (str2[len2] != '\0') len2++;
+
+    // Create a new char array to store the result
+    char* result = new char[len1 + len2 + 1]; // +1 for null terminator
+
+    // Use pointers to copy the strings
+    char* ptr = result;
+    for (int i = 0; i < len1; i++) {
+        *ptr = str1[i];
+        ptr++;
+    }
+    for (int i = 0; i < len2; i++) {
+        *ptr = str2[i];
+        ptr++;
+    }
+    *ptr = '\0'; // Add null terminator
+
+    // Print the result
+    std::cout << result << std::endl;
+
+    // Deallocate memory
+    delete[] result;
+
+    return 0;
 }
-
