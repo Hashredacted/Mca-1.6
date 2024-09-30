@@ -2,9 +2,12 @@
 using namespace std;
 
 int main() {
-    char str1[] = "Hello ";
-    char str2[] = "World!";
-
+    char str1[30];
+    char str2[30];
+	
+	cin.getline(str1,30);
+	cin.getline(str2,30);
+	
     // Calculate the total length of the concatenated string
     int len1 = 0, len2 = 0;
     while (str1[len1] != '\0') len1++;
