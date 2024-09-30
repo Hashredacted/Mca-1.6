@@ -1,38 +1,31 @@
-#include <iostream>
+
+// Write a C++ program to reverse a string using pointers.
+
+#include<iostream>
+#include<cstring>
 using namespace std;
-
-int main() {
-    char str1[30];
-    char str2[30];
+int main()
+{
+	char str[100];
 	
-	cin.getline(str1,30);
-	cin.getline(str2,30);
+	cout<<"Enter your string please : ";
+	cin.getline(str, 100);
 	
-    // Calculate the total length of the concatenated string
-    int len1 = 0, len2 = 0;
-    while (str1[len1] != '\0') len1++;
-    while (str2[len2] != '\0') len2++;
-
-    // Create a new char array to store the result
-    char* result = new char[len1 + len2 + 1]; // +1 for null terminator
-
-    // Use pointers to copy the strings
-    char* ptr = result;
-    for (int i = 0; i < len1; i++) {
-        *ptr = str1[i];
-        ptr++;
-    }
-    for (int i = 0; i < len2; i++) {
-        *ptr = str2[i];
-        ptr++;
-    }
-    *ptr = '\0'; // Add null terminator
-
-    // Print the result
-	cout << result << std::endl;
-
-    // Deallocate memory
-    delete[] result;
-
-    return 0;
+	int len = strlen(str);
+	
+	char *start = str;
+	char *end = str + len - 1;
+	
+	while(start<end)
+	{
+		char temp = *start;
+		*start = *end;
+		*end = temp;
+		*start++;
+		*end--;
+	}
+	
+	cout<<endl<<"Your reverse string is : "<<str;
+	
+	return 0;
 }
