@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int main() {
     char str1[] = "Hello ";
@@ -25,7 +26,7 @@ int main() {
     *ptr = '\0'; // Add null terminator
 
     // Print the result
-    std::cout << result << std::endl;
+	cout << result << std::endl;
 
     // Deallocate memory
     delete[] result;
